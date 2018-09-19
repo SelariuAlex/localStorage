@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 80%;
+  justify-content: center;
+  margin-top: 3rem;
+  background: gray;
+}
+
+.addItems-container {
+  background: black;
+}
+
+.addItems-container,
+.displayItems-container {
+  margin: 1rem 0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: 2px solid black;
+  box-shadow: 0 5px 10px black;
+}
+
+.addItems-title,
+.display-title {
+  text-transform: uppercase;
+}
+
+.addItems-title {
+  color: white;
+}
+
+.addItems-action,
+.displayItems-action {
+  border: 2px solid black;
+  padding: 0.5rem 0;
+  text-transform: capitalize;
+  border-radius: 0.5rem;
+  display: none;
+}
+
+.addItems-input {
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid white;
+  width: 100%;
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: white;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.addItems-submit,
+.displayItems-clear {
+  display: block;
+  width: 80%;
+  margin: 2rem auto 0 auto;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  outline: none;
+}
+
+.addItems-submit {
+  color: white;
+  background: transparent;
+  border: 3px solid white;
+  transition: all 1s ease;
+}
+
+.addItems-submit:hover {
+  background: white;
+  color: black;
+}
+
+.displayItems-container {
+  background: rgb(182, 182, 182);
+}
+
+.displayItems-title {
+  color: blue;
+  margin-bottom: 0.25rem;
+}
+
+.fight-item {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: all 1s ease-in-out;
+  margin: 0.5rem 0;
+}
+
+.fight-item:hover {
+  background: white;
+}
+
+.fight-item__title {
+  text-align: left;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  color: black;
+}
+
+.fight-item__link {
+  color: red;
+  transition: all 1s linear;
+}
+
+.fight-item:hover .fight-item__link {
+  transform: scale(1.5);
+}
+
+.displayItems-clear {
+  color: white;
+  background: black;
+  border: 3px solid white;
+  transition: all 1s ease;
+}
+
+.displayItems-clear:hover {
+  background: white;
+  color: black;
+}
+
+/* action classes */
+
+.alert {
+  color: red;
+  border-color: red;
+  display: block;
+  margin: 1rem 0;
+}
+
+.success {
+  color: green;
+  border-color: green;
+  display: block;
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    grid-template-columns: 50%;
+  }
+}
