@@ -22,6 +22,7 @@ function addItem(event) {
   } else {
     showAction(addItemsAction, `${valoare} was added`, true);
     createItem(valoare);
+    updateStorage(valoare);
   }
 }
 
@@ -56,4 +57,19 @@ function createItem(valoare) {
   </a>`;
 
   list.appendChild(parent);
+}
+
+//update storage
+
+function updateStorage(valoare) {
+  let fightList;
+  let exists = localStorage.getItem("fightList");
+
+  if (exists) {
+    fightList = JSON.parse(localStorage.getItem("fightList"));
+  } else {
+    fightList = [];
+  }
+  fightList.push(valoare);
+  localStorage.setItem("fightList", JSON.stringify(fightList));
 }
