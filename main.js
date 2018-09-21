@@ -12,6 +12,8 @@ const clear = document.querySelector(".displayItems-clear");
 
 submit.addEventListener("click", addItem);
 
+document.addEventListener("DOMContentLoaded", displayStorage);
+
 // functions
 
 function addItem(event) {
@@ -72,4 +74,17 @@ function updateStorage(valoare) {
   }
   fightList.push(valoare);
   localStorage.setItem("fightList", JSON.stringify(fightList));
+}
+
+//display local storage
+
+function displayStorage() {
+  let exists = localStorage.getItem("fightList");
+
+  if (exists) {
+    let storageItems = JSON.parse(localStorage.getItem("fightList"));
+    storageItems.forEach(element => {
+      createItem(element);
+    });
+  }
 }
