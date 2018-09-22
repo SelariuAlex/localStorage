@@ -14,6 +14,8 @@ submit.addEventListener("click", addItem);
 
 document.addEventListener("DOMContentLoaded", displayStorage);
 
+clear.addEventListener("click", removeItems);
+
 // functions
 
 function addItem(event) {
@@ -86,5 +88,21 @@ function displayStorage() {
     storageItems.forEach(element => {
       createItem(element);
     });
+  }
+}
+
+//remove all items
+
+function removeItems() {
+  // delete from local storage
+  localStorage.removeItem("fightList");
+  let items = document.querySelectorAll(".fight-item");
+  if (items.length > 0) {
+    showAction(displayItemsAction, "All items deleted", false);
+    items.forEach(function(element) {
+      list.removeChild(element);
+    });
+  } else {
+    showAction(displayItemsAction, "No more items to delete", true);
   }
 }
