@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", displayStorage);
 
 clear.addEventListener("click", removeItems);
 
+list.addEventListener("click", removeSingleItem);
+
 // functions
 
 function addItem(event) {
@@ -104,5 +106,21 @@ function removeItems() {
     });
   } else {
     showAction(displayItemsAction, "No more items to delete", true);
+  }
+}
+
+// remove single item
+
+function removeSingleItem(event) {
+  event.preventDefault();
+  let link = event.target.parentElement;
+  if (link.classList.contains("fight-item__link")) {
+    let text = link.previousElementSibling.innerHTML;
+    let fightItem = event.target.parentElement.parentElement;
+    //remove from the list
+    list.removeChild(fightItem);
+    showAction(displayItemsAction, `${text} removed from the list`, true);
+    // remove from the local storage
+    editStorage(text);
   }
 }
