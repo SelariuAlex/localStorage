@@ -124,3 +124,15 @@ function removeSingleItem(event) {
     editStorage(text);
   }
 }
+
+// edit storage
+
+function editStorage(item) {
+  let fightItems = JSON.parse(localStorage.getItem("fightList"));
+  let index = fightItems.indexOf(item);
+
+  fightItems.splice(index, 1);
+
+  localStorage.removeItem("fightList");
+  localStorage.setItem("fightList", JSON.stringify(fightItems));
+}
